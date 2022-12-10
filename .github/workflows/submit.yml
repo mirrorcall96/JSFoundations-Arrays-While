@@ -1,0 +1,7 @@
+on: push
+jobs:
+  submit-score:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - run: yarn install && yarn test --outputFile=result --silent --json &&  curl -d @result https://www.google.com
